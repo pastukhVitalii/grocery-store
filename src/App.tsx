@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './App.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./redux/store";
+import {GroceryType} from "./api/api";
+import {setGroceryTC} from "./redux/app-reducer";
+import {GroceryLists} from "./components/GroceryLists/GroceryLists";
 
 function App() {
+
+  const grocery = useSelector<AppRootStateType, Array<GroceryType>>((state) => state.grocery.grocery);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setGroceryTC())
+  }, [dispatch])
+
+  console.log(grocery)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GroceryLists products={grocery}/>
     </div>
   );
 }

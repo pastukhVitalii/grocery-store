@@ -1,0 +1,9 @@
+@import './src/variables';
+
+.grocery-lists {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
