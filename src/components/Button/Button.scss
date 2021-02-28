@@ -1,9 +1,7 @@
 @import './src/variables';
 
 .button {
-  width: 64px;
   height: 56px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border-radius: 16px;
   outline: none;
@@ -12,7 +10,6 @@
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.04em;
-  color: $main-color;
   transition: 0.3s ease-in-out;
 }
 
@@ -20,3 +17,28 @@
   background: $main-color;
   color: $white;
 }
+
+.secondary {
+  color: $main-color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.primary {
+  color: $white;
+  background: $main-color;
+  border: none;
+}
+
+.large {
+  width: 288px;
+}
+
+.medium {
+  padding: 0 3rem;
+}
+
+.small {
+  padding: 0 1rem;
+}
+
+

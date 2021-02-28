@@ -1,4 +1,4 @@
-/*@import './src/variables';
+@import './src/variables';
 
 %text-style {
   letter-spacing: 0.04em;
@@ -21,6 +21,7 @@
   @extend %text-style;
   opacity: 0.5;
   margin: 8px 0;
+  text-transform: uppercase;
 }
 
 .title {
@@ -43,11 +44,4 @@
   font-size: 60px;
   line-height: 72px;
   @extend %text-style;
-}*/
-@import "cardStyle";
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

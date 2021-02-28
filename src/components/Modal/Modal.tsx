@@ -1,6 +1,9 @@
 import React, {SyntheticEvent, useRef} from 'react';
 import './Modal.scss';
 import {GroceryType} from "../../api/api";
+import '../GroceryList/_cardStyle.scss';
+import {Input} from "../Input/Input";
+import {Button} from "../Button/Button";
 
 type PropsType = {
   showModal: boolean
@@ -21,21 +24,24 @@ const Modal = (props: PropsType) => {
   return (
     <div className={`modal showModal-${props.showModal}`} ref={modalRef} onClick={closeModal}>
       <div className={'modal-content'}>
+        <button className={'btn-cancel'} onClick={() => props.setShowModal(false)}>X</button>
         <div className='category'>
           {props.product.category}
         </div>
         <div className="title">
           {props.product.name}
         </div>
-        <div className='footer'>
-          <div>
-            <span className='currencySymbol'>$</span>
-            <span className="price">
+        <div>
+          <span className='currencySymbol'>$</span>
+          <span className="price">
             {props.product.price}
           </span>
-          </div>
         </div>
-        <button onClick={() => props.setShowModal(false)}>close</button>
+        <div className={'form'}>
+          <Input name={'name'}/>
+          <Input name={'number'}/>
+        </div>
+        <Button name={'order'} type={"primary"} size={"large"} onClick={() => alert('send')}/>
       </div>
     </div>
   );

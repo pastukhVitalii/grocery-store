@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {GroceryType} from "../../api/api";
 import './GroceryList.scss';
-import {Button} from "../button/Button";
+import {Button} from "../Button/Button";
 import Modal from "../Modal/Modal";
 
 type PropsType = {
@@ -31,7 +31,7 @@ export const GroceryList = React.memo((props: PropsType) => {
             {props.product.price}
           </span>
           </div>
-          <Button name={'buy'} onClick={openModal}/>
+          <Button name={'buy'} type={"secondary"} size={"small"} onClick={openModal}/>
         </div>
       </div>
       {showModal ? <Modal showModal={showModal} setShowModal={setShowModal} product={props.product}/> : null}
