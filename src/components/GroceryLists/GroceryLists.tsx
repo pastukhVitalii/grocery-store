@@ -8,10 +8,11 @@ type PropsType = {
 }
 
 export const GroceryLists = React.memo((props: PropsType) => {
+
   return (
     <div className='grocery-lists'>
       {props.products.map(p => {
-        return <GroceryList key={p.name} product={p}/>
+        return <GroceryList key={p.name} product={p} />
       })}
     </div>
   )
