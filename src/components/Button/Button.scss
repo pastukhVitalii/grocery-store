@@ -47,7 +47,6 @@
   opacity: 0;
   left: -5px;
   transition: 0.3s;
-  padding-left: 5px;
 }
 
 .btn-order button:hover::after {
@@ -55,5 +54,5 @@
   opacity: 1;
 }
 .btn-order button {
-  padding-left: 15px;
+  padding-left: 16px;
 }

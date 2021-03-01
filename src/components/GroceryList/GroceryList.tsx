@@ -15,6 +15,7 @@ export const GroceryList = React.memo((props: PropsType) => {
   const openModal = () => {
     setShowModal(prev => !prev);
   };
+
   return (
     <div>
       <div className='list'>

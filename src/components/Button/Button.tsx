@@ -9,7 +9,7 @@ type OwnPropTypes = {
 }
 
 export const Button = React.memo((props: OwnPropTypes) => {
-
+  console.log('button')
   return (
     <button className={`button ${props.type} ${props.size}`} onClick={props.onClick}>
       {props.name}
