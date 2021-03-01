@@ -4,6 +4,7 @@ import {GroceryType} from "../../api/api";
 import '../GroceryList/_cardStyle.scss';
 import {Input} from "../Input/Input";
 import {Button} from "../Button/Button";
+import arrow from '../../img/arrow-right.svg';
 
 type PropsType = {
   showModal: boolean
@@ -43,6 +44,7 @@ const Modal = React.memo((props: PropsType) => {
           </div>
           <div className={'btn-order'}>
             <Button name={'order'} type={"primary"} size={"large"} onClick={() => alert('send')}/>
+            <img src={arrow} alt="arrow"/>
           </div>
         </div>
       </div>

@@ -41,18 +41,15 @@
   padding: 0 1rem;
 }
 
-.btn-order button::after {
-  content: '\279C';
-  position: relative;
+.btn-order img {
+  position: fixed;
+  right: 480px;
+  bottom: 185px;
   opacity: 0;
-  left: -5px;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
-.btn-order button:hover::after {
-  left: 6px;
+.btn-order:hover img {
+  right: 460px;
   opacity: 1;
-}
-.btn-order button {
-  padding-left: 16px;
 }
