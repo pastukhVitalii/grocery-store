@@ -38,10 +38,12 @@ const Modal = (props: PropsType) => {
           </span>
         </div>
         <div className={'form'}>
-          <Input name={'name'}/>
-          <Input name={'number'}/>
+          <Input name={'name'} required onlyLetters/>
+          <Input name={'number'} required minLength onlyNumbers/>
         </div>
-        <Button name={'order'} type={"primary"} size={"large"} onClick={() => alert('send')}/>
+        <div className={'btn-order'}>
+          <Button name={'order'} type={"primary"} size={"large"} onClick={() => alert('send')}/>
+        </div>
       </div>
     </div>
   );

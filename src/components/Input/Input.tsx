@@ -3,12 +3,16 @@ import './Input.scss';
 
 type PropsType = {
   name: string
+  required?: boolean
+  minLength?: boolean
+  onlyNumbers?: boolean
+  onlyLetters?: boolean
 }
 
 export const Input = React.memo((props: PropsType) => {
 
   const [value, setValue] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | undefined>('');
 
   const onChange = useCallback((event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const value = event.currentTarget.value;
@@ -16,28 +20,56 @@ export const Input = React.memo((props: PropsType) => {
   }, [setValue])
 
   const required = () => {
-    setError(value.trim() === ''
-      ? 'This field in required'
-      : '')
+    if (value.trim() === '') {
+      return setError('This field in required')
+    } else return undefined
   };
 
   const minLength = (length: number) => {
-    setError((value.length <= length)
-      ? 'Should contain 12 characters'
-      : '')
+    if (value.length <= length) {
+      return setError('Should contain 12 characters')
+    } else return undefined
+  }
+
+  const onlyLetters = () => {
+    let reg = /^[a-zа-яё]+$/i;
+    if (!reg.test(value)) {
+      setError('Only letters allowed')
+    } else setError('')
+  }
+
+  const onlyNumbers = () => {
+    let reg = /^[0-9]*$/gm;
+    if (!reg.test(value)) {
+      return setError('Only numbers allowed');
+    } else return undefined
   }
 
   const validate = () => {
-    switch (props.name) {
-      case 'name':
-        required();
-        /*setError(value.length > 20
-        ? 'Only letters allowed'
-        : '')*/
-        break;
-      case 'number':
-        required();
+    switch (props.minLength) {
+      case props.minLength:
         minLength(12);
+        break;
+      default:
+        break;
+    }
+    switch (props.onlyNumbers) {
+      case props.onlyNumbers:
+        onlyNumbers();
+        break;
+      default:
+        break;
+    }
+    switch (props.onlyLetters) {
+      case props.onlyLetters:
+        onlyLetters();
+        break;
+      default:
+        break;
+    }
+    switch (props.required) {
+      case props.required:
+        required();
         break;
       default:
         break;
@@ -46,9 +78,10 @@ export const Input = React.memo((props: PropsType) => {
 
   return (
     <div>
+      {error ? <div className={'errorIcon'}>X</div> : ''}
       <input name={props.name} type={'text'} value={value} onChange={onChange} onFocus={() => setError('')}
-             onBlur={validate} placeholder={props.name}/>
-      <div>{error}</div>
+             onBlur={validate} placeholder={props.name} className={error ? 'error' : ''}/>
+      <div className={'errorMessage'}>{error}</div>
     </div>
   )
 })

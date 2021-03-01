@@ -13,14 +13,14 @@
   transition: 0.3s ease-in-out;
 }
 
-.button:hover {
-  background: $main-color;
-  color: $white;
-}
-
 .secondary {
   color: $main-color;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.secondary:hover {
+  background: $main-color;
+  color: $white;
 }
 
 .primary {
@@ -41,4 +41,19 @@
   padding: 0 1rem;
 }
 
+.btn-order button::after {
+  content: '\279C';
+  position: relative;
+  opacity: 0;
+  left: -5px;
+  transition: 0.3s;
+  padding-left: 5px;
+}
 
+.btn-order button:hover::after {
+  left: 6px;
+  opacity: 1;
+}
+.btn-order button {
+  padding-left: 15px;
+}
