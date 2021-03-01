@@ -40,7 +40,7 @@ const Modal = React.memo((props: PropsType) => {
     }
 
     const onlyLetters = (value: string, inputName: string) => {
-      let reg = /^[a-zа-яё]+$/i;
+      let reg = /[a-zа-яёійьґє\s]+/ig;
       if (!reg.test(value)) {
         return inputName === 'name' ? setErrorName('Only letters allowed') : setErrorNumber('Only letters allowed');
       } else return undefined
