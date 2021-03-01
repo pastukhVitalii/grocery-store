@@ -22,8 +22,6 @@ export const GroceryLists = React.memo((props: PropsType) => {
 
   const [cheapestProduct] = props.products.filter(p => p.price === minPrice);
 
-  console.log(cheapestProduct);
-
   return (
     <div>
       <div className='grocery-lists'>
