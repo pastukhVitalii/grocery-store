@@ -15,7 +15,3 @@ export type GroceryType = {
   category: string
   price: number
 }
-
-export type ResGroceryType = {
-  grocery: GroceryType
-};

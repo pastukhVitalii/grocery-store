@@ -15,7 +15,6 @@ function App() {
     dispatch(setGroceryTC())
   }, [dispatch])
 
-  console.log(grocery)
   return (
     <div className="App">
       <GroceryLists products={grocery}/>

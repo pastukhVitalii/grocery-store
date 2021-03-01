@@ -16,6 +16,7 @@
 .secondary {
   color: $main-color;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background: $white;
 }
 
 .secondary:hover {
@@ -41,15 +42,19 @@
   padding: 0 1rem;
 }
 
+.btn-order {
+  margin-left: 20px;
+}
+
 .btn-order img {
-  position: fixed;
-  right: 480px;
-  bottom: 185px;
+  position: relative;
+  right: 140px;
+  bottom: -4px;
   opacity: 0;
   transition: 0.3s ease-in-out;
 }
 
 .btn-order:hover img {
-  right: 460px;
+  right: 110px;
   opacity: 1;
 }
